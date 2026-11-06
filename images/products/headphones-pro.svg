@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <filter id="hpShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="400" height="300" fill="#f8fafc"/>
+  <!-- Оголовье -->
+  <path d="M 120 170 C 110 70, 290 70, 280 170" fill="none" stroke="#334155" stroke-width="16" stroke-linecap="round"/>
+  <path d="M 140 120 C 150 90, 250 90, 260 120" fill="none" stroke="#64748b" stroke-width="6" stroke-linecap="round"/>
+  <!-- Левая чаша -->
+  <rect x="95" y="140" width="45" height="75" rx="22" fill="url(#hpGrad)" filter="url(#hpShadow)"/>
+  <rect x="105" y="146" width="30" height="63" rx="15" fill="#1e293b"/>
+  <!-- Правая чаша -->
+  <rect x="260" y="140" width="45" height="75" rx="22" fill="url(#hpGrad)" filter="url(#hpShadow)"/>
+  <rect x="265" y="146" width="30" height="63" rx="15" fill="#1e293b"/>
+  <!-- Текст логотипа -->
+  <text x="200" y="255" fill="#475569" font-family="system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Hi-Res ANC Audio</text>
+</svg>

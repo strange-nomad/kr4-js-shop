@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Контактная информация флагманского шоурума SmartPulse: адрес в Москве, часы работы, отдел поддержки и форма обратной связи.">
+  <title>Контакты и шоурум — SmartPulse (Адаптивная версия)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/cart.js" defer></script>
+  <script src="js/modal.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Ссылка быстрой навигации для скринридеров и клавиатуры (A11y) -->
+  <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+  <!-- Шапка сайта -->
+  <header class="site-header site-header--sticky">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-header__logo" aria-label="На главную страницу SmartPulse">
+        <span class="site-header__logo-icon" aria-hidden="true">SP</span>
+        <span>SmartPulse</span>
+      </a>
+
+      <!-- Кнопка мобильного бургер-меню -->
+      <button type="button" class="burger-btn" aria-label="Открыть мобильное меню" aria-expanded="false" aria-controls="site-nav">
+        <span class="burger-btn__line" aria-hidden="true"></span>
+        <span class="burger-btn__line" aria-hidden="true"></span>
+        <span class="burger-btn__line" aria-hidden="true"></span>
+      </button>
+
+      <!-- Единая сквозная навигация -->
+      <nav id="site-nav" class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a href="index.html" class="site-nav__link">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="catalog.html" class="site-nav__link">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="product.html" class="site-nav__link">О товаре</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="cart.html" class="site-nav__link">Корзина <span class="cart-badge">0</span></a>
+          </li>
+          <li class="site-nav__item">
+            <a href="order.html" class="site-nav__link">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="contacts.html" class="site-nav__link site-nav__link--active" aria-current="page">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href="cart.html" class="button button--outline" aria-label="Корзина">
+          🛒 <span class="cart-badge">0</span>
+        </a>
+        <button type="button" class="button button--outline" data-modal-open>Консультация</button>
+        <a href="order.html" class="button button--primary">Заказать</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Хлебные крошки -->
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+        <li class="breadcrumbs__item"><span class="breadcrumbs__current">Контакты и шоурум</span></li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Основное содержимое страницы контактов -->
+  <main id="main-content" class="container">
+    <header style="margin-bottom: 32px;">
+      <h1>Контакты и флагманский шоурум</h1>
+      <p style="color: var(--color-text-muted);">
+        Приходите протестировать любые гаджеты вживую или свяжитесь с нами удобным для вас способом.
+      </p>
+    </header>
+
+    <div class="contacts-grid">
+      <!-- Блок контактных сведений и схемы проезда -->
+      <section class="contact-info-card" aria-label="Адрес и реквизиты">
+        <h2>Как нас найти</h2>
+
+        <ul class="contact-info-list">
+          <li class="contact-info-item">
+            <span class="contact-info-label">Адрес флагманского магазина</span>
+            <span class="contact-info-value">г. Москва, проспект Вернадского, дом 78 (РТУ МИРЭА)</span>
+          </li>
+          <li class="contact-info-item">
+            <span class="contact-info-label">Ближайшая станция метро</span>
+            <span class="contact-info-value">м. Юго-Западная (5 минут пешком)</span>
+          </li>
+          <li class="contact-info-item">
+            <span class="contact-info-label">График работы шоурума</span>
+            <span class="contact-info-value">Понедельник — Воскресенье: 09:00 — 21:00</span>
+          </li>
+          <li class="contact-info-item">
+            <span class="contact-info-label">Телефон горячей линии</span>
+            <span class="contact-info-value"><a href="tel:+74951234567">+7 (495) 123-45-67</a></span>
+          </li>
+          <li class="contact-info-item">
+            <span class="contact-info-label">Электронная почта поддержки</span>
+            <span class="contact-info-value"><a href="mailto:support@smartpulse-shop.ru">support@smartpulse-shop.ru</a></span>
+          </li>
+        </ul>
+
+        <!-- Стилизованная схема проезда -->
+        <div class="map-placeholder" role="img" aria-label="Схема проезда к шоуруму SmartPulse">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary); margin-bottom: 8px;" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <strong style="color: var(--color-text);">Интерактивная карта шоурума</strong>
+          <span style="font-size: 0.85rem;">Москва, пр-т Вернадского, 78 • Парковка для клиентов</span>
+        </div>
+      </section>
+
+      <!-- Форма обратной связи -->
+      <section class="contact-info-card" aria-label="Форма обратной связи">
+        <h2>Напишите нам</h2>
+        <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px;">
+          Есть вопросы о совместимости гаджетов или корпоративных закупках? Задайте вопрос напрямую руководству магазина:
+        </p>
+
+        <form action="#" method="post" class="order-form">
+          <div class="order-form__field">
+            <label for="contact-name" class="order-form__label">
+              Ваше имя <span class="order-form__label-required">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="contact-name" 
+              name="name" 
+              class="order-form__input" 
+              required 
+              placeholder="Арсений"
+            >
+          </div>
+
+          <div class="order-form__field">
+            <label for="contact-email" class="order-form__label">
+              Email для ответа <span class="order-form__label-required">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="contact-email" 
+              name="email" 
+              class="order-form__input" 
+              required 
+              placeholder="example@mail.ru"
+            >
+          </div>
+
+          <div class="order-form__field">
+            <label for="contact-topic" class="order-form__label">
+              Тема обращения <span class="order-form__label-required">*</span>
+            </label>
+            <select id="contact-topic" name="topic" class="order-form__select" required>
+              <option value="consult">Консультация по характеристикам</option>
+              <option value="service">Сервисное и гарантийное обслуживание</option>
+              <option value="b2b">Корпоративные и оптовые заказы</option>
+              <option value="suggestion">Предложения и пожелания</option>
+            </select>
+          </div>
+
+          <div class="order-form__field">
+            <label for="contact-message" class="order-form__label">
+              Текст сообщения <span class="order-form__label-required">*</span>
+            </label>
+            <textarea 
+              id="contact-message" 
+              name="message" 
+              class="order-form__textarea" 
+              rows="4" 
+              required 
+              placeholder="Опишите ваш вопрос..."
+            ></textarea>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__checkbox-label">
+              <input type="checkbox" id="contact-agree" name="agree" required checked>
+              <span>Согласен на обработку персональных данных</span>
+            </label>
+          </div>
+
+          <div class="order-form__actions">
+            <a href="order.html" class="button button--secondary">Форма заказа</a>
+            <button type="submit" class="button button--primary">Отправить сообщение</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- Плавающая кнопка возврата наверх -->
+  <a href="#main-content" class="scroll-top-btn" title="Вернуться к началу страницы" aria-label="Вернуться наверх">↑</a>
+
+  <!-- Модальное окно быстрой консультации -->
+  <dialog id="modal-feedback" class="modal" aria-labelledby="modal-title">
+    <div class="modal__card">
+      <button type="button" class="modal__close-btn" data-modal-close aria-label="Закрыть окно">&times;</button>
+      <h3 id="modal-title">Свяжитесь с нами</h3>
+      <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 16px;">
+        Оставьте свои контакты, и мы перезвоним в течение 10 минут.
+      </p>
+      <form class="order-form" method="dialog">
+        <div class="order-form__field">
+          <label for="modal-name" class="order-form__label">Ваше имя <span class="order-form__label-required">*</span></label>
+          <input type="text" id="modal-name" name="name" class="order-form__input" required placeholder="Арсений">
+        </div>
+        <div class="order-form__field">
+          <label for="modal-phone" class="order-form__label">Номер телефона <span class="order-form__label-required">*</span></label>
+          <input type="tel" id="modal-phone" name="phone" class="order-form__input" required placeholder="+7 (999) 000-00-00">
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__checkbox-label">
+            <input type="checkbox" name="agree" required checked>
+            Согласен на обработку данных
+          </label>
+        </div>
+        <div class="order-form__actions">
+          <button type="button" class="button button--secondary" data-modal-close>Отмена</button>
+          <button type="submit" class="button button--primary">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Подвал сайта -->
+  <footer id="contacts" class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-header__logo" style="color: #ffffff; margin-bottom: 12px;">
+            <span class="site-header__logo-icon" aria-hidden="true">SP</span>
+            <span>SmartPulse</span>
+          </div>
+          <p style="font-size: 0.9rem;">
+            Флагманский магазин инновационной электроники, носимых устройств и систем умного дома.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="site-footer__title">Навигация</h4>
+          <ul class="site-footer__list">
+            <li><a href="index.html" class="site-footer__link">Главная</a></li>
+            <li><a href="catalog.html" class="site-footer__link">Каталог гаджетов</a></li>
+            <li><a href="product.html" class="site-footer__link">Карточка товара</a></li>
+            <li><a href="cart.html" class="site-footer__link">Корзина</a></li>
+            <li><a href="order.html" class="site-footer__link">Оформить заявку</a></li>
+            <li><a href="contacts.html" class="site-footer__link">Контакты и шоурум</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="site-footer__title">Быстрые якоря</h4>
+          <ul class="site-footer__list">
+            <li><a href="index.html#advantages" class="site-footer__link">Преимущества</a></li>
+            <li><a href="index.html#popular" class="site-footer__link">Хиты продаж</a></li>
+            <li><a href="index.html#contacts" class="site-footer__link">Контактные данные</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="site-footer__title">Контакты</h4>
+          <ul class="site-footer__list">
+            <li>г. Москва, ул. Проспект Вернадского, 78</li>
+            <li>Телефон: +7 (495) 123-45-67</li>
+            <li>Email: info@smartpulse-shop.ru</li>
+            <li>Режим: ежедневно с 09:00 до 21:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© 2026 SmartPulse. Контрольная работа №4 по интерактивному JavaScript. Студент: Кабанов Арсений Алексеевич, гр. ЭФБО-17-25.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Каталог инновационных гаджетов и умной электроники SmartPulse на JavaScript: живой поиск, фильтрация по категориям и сортировка.">
+  <title>Каталог умной электроники — SmartPulse (JavaScript)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Подключение JavaScript-модулей в соответствии с разделом 12 -->
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/catalog.js" defer></script>
+  <script src="js/modal.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Ссылка быстрой навигации для скринридеров и клавиатуры (A11y) -->
+  <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+  <!-- Шапка сайта -->
+  <header class="site-header site-header--sticky">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-header__logo" aria-label="На главную страницу SmartPulse">
+        <span class="site-header__logo-icon" aria-hidden="true">SP</span>
+        <span>SmartPulse</span>
+      </a>
+
+      <!-- Кнопка мобильного бургер-меню -->
+      <button type="button" class="burger-btn" aria-label="Открыть мобильное меню" aria-expanded="false" aria-controls="site-nav">
+        <span class="burger-btn__line" aria-hidden="true"></span>
+        <span class="burger-btn__line" aria-hidden="true"></span>
+        <span class="burger-btn__line" aria-hidden="true"></span>
+      </button>
+
+      <!-- Единая сквозная навигация -->
+      <nav id="site-nav" class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a href="index.html" class="site-nav__link">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="catalog.html" class="site-nav__link site-nav__link--active" aria-current="page">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="product.html" class="site-nav__link">О товаре</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="cart.html" class="site-nav__link">
+              Корзина <span class="cart-badge" style="display: none;"></span>
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a href="order.html" class="site-nav__link">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="contacts.html" class="site-nav__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <button type="button" class="button button--outline" data-modal-open>Консультация</button>
+        <a href="cart.html" class="button button--primary">Корзина</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Хлебные крошки -->
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+        <li class="breadcrumbs__item"><span class="breadcrumbs__current">Каталог устройств</span></li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Основное содержимое каталога -->
+  <main id="main-content" class="container">
+    <header style="margin-bottom: 24px;">
+      <h1>Каталог умной электроники</h1>
+      <p style="color: var(--color-text-muted);">
+        Интерактивная витрина с генерацией карточек через чистый JavaScript, живым поиском и сортировкой.
+      </p>
+    </header>
+
+    <div class="catalog-layout">
+      <!-- Боковой блок интерактивных фильтров и поиска -->
+      <aside class="filters-sidebar filters-sidebar--sticky" aria-label="Параметры поиска и фильтрации">
+        <h2 class="filter-group__title">Поиск и фильтры</h2>
+
+        <form action="#" method="get" onsubmit="return false;">
+          <!-- Живой поиск по названию (событие input) -->
+          <div class="filter-group">
+            <label for="catalog-search-input" class="filter-group__title" style="display: block;">
+              Поиск по названию:
+            </label>
+            <input 
+              type="search" 
+              id="catalog-search-input" 
+              placeholder="Введите название..." 
+              class="order-form__input"
+              autocomplete="off"
+            >
+          </div>
+
+          <!-- Фильтрация по категории (событие change) -->
+          <div class="filter-group">
+            <label for="catalog-category-filter" class="filter-group__title" style="display: block;">
+              Категория:
+            </label>
+            <select id="catalog-category-filter" class="order-form__select">
+              <option value="all" selected>Все категории</option>
+              <option value="wearable">Смарт-часы и браслеты</option>
+              <option value="audio">Беспроводное аудио</option>
+              <option value="home">Умный дом и роботы</option>
+              <option value="power">Питание и розетки</option>
+            </select>
+          </div>
+
+          <!-- Сортировка по цене и названию (событие change) -->
+          <div class="filter-group">
+            <label for="catalog-sort-select" class="filter-group__title" style="display: block;">
+              Сортировка:
+            </label>
+            <select id="catalog-sort-select" class="order-form__select">
+              <option value="default" selected>По умолчанию</option>
+              <option value="price-asc">Сначала дешевле (по возрастанию)</option>
+              <option value="price-desc">Сначала дороже (по убыванию)</option>
+              <option value="rating-desc">По рейтингу покупателей</option>
+              <option value="title-asc">По названию (А — Я)</option>
+            </select>
+          </div>
+
+          <!-- Фильтр наличия -->
+          <div class="filter-group">
+            <h3 class="filter-group__title">Статус</h3>
+            <label class="filter-group__item">
+              <input type="checkbox" id="catalog-instock-checkbox">
+              Только в наличии в шоуруме
+            </label>
+          </div>
+
+          <div class="filter-actions">
+            <button type="button" id="catalog-reset-filters" class="button button--secondary" style="width: 100%;">
+              Сбросить фильтры
+            </button>
+          </div>
+        </form>
+      </aside>
+
+      <!-- Основная витрина каталога -->
+      <section class="catalog-content" aria-label="Список товаров">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h2 style="font-size: 1.3rem; margin-bottom: 0;">Витрина гаджетов</h2>
+          <!-- Динамический счетчик найденных товаров (раздел 6 методички) -->
+          <span id="catalog-count-badge" class="button button--secondary" style="font-size: 0.85rem; padding: 4px 12px; pointer-events: none;">
+            Загрузка...
+          </span>
+        </div>
+
+        <!-- Контейнер для динамических карточек (карточки генерируются через js/catalog.js) -->
+        <div id="catalog-products-grid" class="product-grid">
+          <!-- Карточки создаются через document.createElement() в JavaScript -->
+        </div>
+
+        <!-- Пустое состояние (когда по фильтрам ничего не найдено) -->
+        <div id="catalog-empty-state" class="empty-state" style="display: none;">
+          <div class="empty-state__icon" aria-hidden="true">🔍</div>
+          <h3 class="empty-state__title">По вашему запросу ничего не найдено</h3>
+          <p class="empty-state__desc">Попробуйте изменить поисковый запрос или сбросить фильтры категорий.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Плавающая кнопка возврата наверх -->
+  <a href="#main-content" class="scroll-top-btn" title="Вернуться к началу страницы" aria-label="Вернуться наверх">↑</a>
+
+  <!-- Модальное окно быстрой консультации -->
+  <dialog id="modal-feedback" class="modal" aria-labelledby="modal-title">
+    <div class="modal__card">
+      <button type="button" class="modal__close-btn" data-modal-close aria-label="Закрыть окно">&times;</button>
+      <h3 id="modal-title">Консультация по каталогу</h3>
+      <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 16px;">
+        Нужна помощь с выбором гаджета? Укажите номер телефона, и наш инженер поможет определиться.
+      </p>
+      <form class="order-form" method="dialog">
+        <div class="order-form__field">
+          <label for="modal-name" class="order-form__label">Ваше имя <span class="order-form__label-required">*</span></label>
+          <input type="text" id="modal-name" name="name" class="order-form__input" required placeholder="Арсений">
+        </div>
+        <div class="order-form__field">
+          <label for="modal-phone" class="order-form__label">Номер телефона <span class="order-form__label-required">*</span></label>
+          <input type="tel" id="modal-phone" name="phone" class="order-form__input" required placeholder="+7 (999) 000-00-00">
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__checkbox-label">
+            <input type="checkbox" name="agree" required checked>
+            Согласен на обработку персональных данных
+          </label>
+        </div>
+        <div class="order-form__actions">
+          <button type="button" class="button button--secondary" data-modal-close>Отмена</button>
+          <button type="submit" class="button button--primary">Позвоните мне</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Подвал сайта -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-header__logo" style="color: #ffffff; margin-bottom: 12px;">
+            <span class="site-header__logo-icon" aria-hidden="true">SP</span>
+            <span>SmartPulse</span>
+          </div>
+          <p style="font-size: 0.9rem;">
+            Каталог сертифицированной электроники с динамическим каталогом на чистом JavaScript.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="site-footer__title">Навигация</h4>
+          <ul class="site-footer__list">
+            <li><a href="index.html" class="site-footer__link">Главная</a></li>
+            <li><a href="catalog.html" class="site-footer__link">Каталог гаджетов</a></li>
+            <li><a href="product.html" class="site-footer__link">Карточка товара</a></li>
+            <li><a href="cart.html" class="site-footer__link">Корзина покупок</a></li>
+            <li><a href="order.html" class="site-footer__link">Оформить заявку</a></li>
+            <li><a href="contacts.html" class="site-footer__link">Контакты и шоурум</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="site-footer__title">Контакты</h4>
+          <ul class="site-footer__list">
+            <li>г. Москва, ул. Проспект Вернадского, 78</li>
+            <li>Телефон: +7 (495) 123-45-67</li>
+            <li>Email: info@smartpulse-shop.ru</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© 2026 SmartPulse. Контрольная работа №4 по JavaScript. Студент: Кабанов Арсений Алексеевич, гр. ЭФБО-17-25.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

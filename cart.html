@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Корзина покупок интернет-магазина SmartPulse. Просмотр выбранных гаджетов, расчет стоимости и применение промокодов.">
+  <title>Корзина покупок — SmartPulse (JavaScript)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/modal.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Ссылка быстрой навигации для скринридеров и клавиатуры (A11y) -->
+  <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+  <!-- Шапка сайта -->
+  <header class="site-header site-header--sticky">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-header__logo" aria-label="На главную страницу SmartPulse">
+        <span class="site-header__logo-icon" aria-hidden="true">SP</span>
+        <span>SmartPulse</span>
+      </a>
+
+      <!-- Кнопка мобильного бургер-меню -->
+      <button type="button" class="burger-btn" aria-label="Открыть мобильное меню" aria-expanded="false" aria-controls="site-nav">
+        <span class="burger-btn__line" aria-hidden="true"></span>
+        <span class="burger-btn__line" aria-hidden="true"></span>
+        <span class="burger-btn__line" aria-hidden="true"></span>
+      </button>
+
+      <!-- Единая сквозная навигация -->
+      <nav id="site-nav" class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a href="index.html" class="site-nav__link">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="catalog.html" class="site-nav__link">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="product.html" class="site-nav__link">О товаре</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="cart.html" class="site-nav__link site-nav__link--active" aria-current="page">
+              Корзина <span class="cart-badge" style="display: none;"></span>
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a href="order.html" class="site-nav__link">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="contacts.html" class="site-nav__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <button type="button" class="button button--outline" data-modal-open>Консультация</button>
+        <a href="order.html" class="button button--primary">Оформить</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Хлебные крошки -->
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+        <li class="breadcrumbs__item"><span class="breadcrumbs__current">Корзина покупок</span></li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Основное содержимое страницы корзины -->
+  <main id="main-content" class="container">
+    <header style="margin-bottom: 24px;">
+      <h1>Корзина покупок</h1>
+      <p style="color: var(--color-text-muted);">
+        Управляйте составом заказа, применяйте промокоды и переходите к оформлению.
+      </p>
+    </header>
+
+    <!-- Пустое состояние корзины (по умолчанию скрыто) -->
+    <div id="cart-empty-state" class="empty-state" style="display: none;">
+      <div class="empty-state__icon" aria-hidden="true">🛒</div>
+      <h2 class="empty-state__title">Ваша корзина пуста</h2>
+      <p class="empty-state__desc">Выберите интересующие гаджеты в каталоге и добавьте их в заказ.</p>
+      <a href="catalog.html" class="button button--primary">Перейти в каталог гаджетов</a>
+    </div>
+
+    <!-- Основной макет корзины с товарами и калькулятором -->
+    <div class="cart-layout">
+      <!-- Список выбранных позиций -->
+      <section class="cart-items-card" aria-label="Список позиций в корзине">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--color-border-light); padding-bottom: 12px;">
+          <h2 style="font-size: 1.2rem; margin-bottom: 0;">Выбранные устройства</h2>
+          <button type="button" id="cart-clear-btn" class="button button--outline" style="font-size: 0.85rem; padding: 6px 12px;">Очистить всё</button>
+        </div>
+
+        <div id="cart-items-container">
+          <!-- Товары генерируются динамически через js/cart.js -->
+        </div>
+      </section>
+
+      <!-- Блок расчета суммы и промокода -->
+      <aside id="cart-summary-block" class="cart-summary-card" aria-label="Итоговый расчет">
+        <h2 style="font-size: 1.2rem; margin-bottom: 16px;">Итог заказа</h2>
+
+        <div class="cart-summary__row">
+          <span>Сумма товаров:</span>
+          <strong id="cart-subtotal">0 ₽</strong>
+        </div>
+
+        <div class="cart-summary__row">
+          <span>Скидка:</span>
+          <strong id="cart-discount" style="color: var(--color-success);">0 ₽ (0%)</strong>
+        </div>
+
+        <div class="cart-summary__row cart-summary__row--total">
+          <span>К оплате:</span>
+          <strong id="cart-final-total" style="color: var(--color-primary);">0 ₽</strong>
+        </div>
+
+        <!-- Форма промокода -->
+        <form id="cart-promo-form" style="margin-top: 20px; border-top: 1px solid var(--color-border-light); padding-top: 16px;">
+          <label for="cart-promo-input" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">
+            Промокод на скидку:
+          </label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="cart-promo-input" placeholder="MIREA2026" class="order-form__input" style="padding: 8px 12px;">
+            <button type="submit" class="button button--secondary" style="padding: 8px 14px;">Применить</button>
+          </div>
+          <div id="promo-feedback" class="form-feedback"></div>
+        </form>
+
+        <div style="margin-top: 24px;">
+          <a href="order.html" class="button button--primary button--large" style="width: 100%;">Перейти к оформлению</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Модальное окно быстрой консультации -->
+  <dialog id="modal-feedback" class="modal" aria-labelledby="modal-title">
+    <div class="modal__card">
+      <button type="button" class="modal__close-btn" data-modal-close aria-label="Закрыть окно">&times;</button>
+      <h3 id="modal-title">Консультация по заказу</h3>
+      <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 16px;">
+        Оставьте свои контакты, и наш специалист перезвонит в течение 10 минут.
+      </p>
+      <form class="order-form" method="dialog">
+        <div class="order-form__field">
+          <label for="modal-name" class="order-form__label">Ваше имя <span class="order-form__label-required">*</span></label>
+          <input type="text" id="modal-name" name="name" class="order-form__input" required placeholder="Арсений">
+        </div>
+        <div class="order-form__field">
+          <label for="modal-phone" class="order-form__label">Номер телефона <span class="order-form__label-required">*</span></label>
+          <input type="tel" id="modal-phone" name="phone" class="order-form__input" required placeholder="+7 (999) 000-00-00">
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__checkbox-label">
+            <input type="checkbox" name="agree" required checked>
+            Согласен на обработку персональных данных
+          </label>
+        </div>
+        <div class="order-form__actions">
+          <button type="button" class="button button--secondary" data-modal-close>Отмена</button>
+          <button type="submit" class="button button--primary">Жду звонка</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Подвал сайта -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-header__logo" style="color: #ffffff; margin-bottom: 12px;">
+            <span class="site-header__logo-icon" aria-hidden="true">SP</span>
+            <span>SmartPulse</span>
+          </div>
+          <p style="font-size: 0.9rem;">
+            Флагманский магазин инновационной электроники и систем умного дома.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="site-footer__title">Навигация</h4>
+          <ul class="site-footer__list">
+            <li><a href="index.html" class="site-footer__link">Главная</a></li>
+            <li><a href="catalog.html" class="site-footer__link">Каталог гаджетов</a></li>
+            <li><a href="product.html" class="site-footer__link">Карточка товара</a></li>
+            <li><a href="cart.html" class="site-footer__link">Корзина покупок</a></li>
+            <li><a href="order.html" class="site-footer__link">Оформить заявку</a></li>
+            <li><a href="contacts.html" class="site-footer__link">Контакты и шоурум</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="site-footer__title">Контакты</h4>
+          <ul class="site-footer__list">
+            <li>г. Москва, ул. Проспект Вернадского, 78</li>
+            <li>Телефон: +7 (495) 123-45-67</li>
+            <li>Email: info@smartpulse-shop.ru</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© 2026 SmartPulse. Контрольная работа №4 по JavaScript. Студент: Кабанов Арсений Алексеевич, гр. ЭФБО-17-25.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+/* Массив товаров интернет-магазина SmartPulse */
+/* Соответствует требованиям раздела 5 методических указаний КР №4 */
+
+const products = [
+  {
+    id: 1,
+    title: 'SmartPulse Chrono Pro',
+    category: 'wearable',
+    price: 24990,
+    oldPrice: 29990,
+    isAvailable: true,
+    rating: 4.9,
+    reviewsCount: 128,
+    badge: 'Хит',
+    image: 'images/products/watch-chrono.svg',
+    description: 'Флагманские смарт-часы с титановым безелем, AMOLED экраном 1.43" и мониторингом SpO2.'
+  },
+  {
+    id: 2,
+    title: 'SonicFlow ANC Max',
+    category: 'audio',
+    price: 14990,
+    oldPrice: 19990,
+    isAvailable: true,
+    rating: 4.8,
+    reviewsCount: 94,
+    badge: 'Скидка',
+    image: 'images/products/headphones-pro.svg',
+    description: 'Беспроводные полноразмерные наушники с гибридным шумоподавлением и Hi-Res Audio.'
+  },
+  {
+    id: 3,
+    title: 'NovaStation AI Hub',
+    category: 'home',
+    price: 11490,
+    oldPrice: null,
+    isAvailable: true,
+    rating: 5.0,
+    reviewsCount: 42,
+    badge: 'Новинка',
+    image: 'images/products/speaker-home.svg',
+    description: 'Интеллектуальный спикер с голосовым ассистентом, протоколом Zigbee 3.0 и звуком 360°.'
+  },
+  {
+    id: 4,
+    title: 'RoboClean Lidar Ultra',
+    category: 'home',
+    price: 32990,
+    oldPrice: null,
+    isAvailable: true,
+    rating: 4.9,
+    reviewsCount: 81,
+    badge: 'Хит',
+    image: 'images/products/robot-vacuum.svg',
+    description: 'Лазерная SLAM навигация, влажная уборка с виброшваброй и мощность всасывания 5000 Па.'
+  },
+  {
+    id: 5,
+    title: 'SocketLink Matter Pro',
+    category: 'power',
+    price: 2190,
+    oldPrice: null,
+    isAvailable: true,
+    rating: 4.7,
+    reviewsCount: 36,
+    badge: null,
+    image: 'images/products/smart-plug.svg',
+    description: 'Умная розетка с измерением энергопотребления, защитой от перегрузок и поддержкой Matter.'
+  },
+  {
+    id: 6,
+    title: 'PulseFit Band 5',
+    category: 'wearable',
+    price: 3990,
+    oldPrice: 4590,
+    isAvailable: true,
+    rating: 4.8,
+    reviewsCount: 52,
+    badge: 'Новинка',
+    image: 'images/products/fitness-band.svg',
+    description: 'Легкий фитнес-браслет с AMOLED-экраном, 120 режимами тренировок и водонепроницаемостью 5 ATM.'
+  },
+  {
+    id: 7,
+    title: 'SonicFlow Buds Pro',
+    category: 'audio',
+    price: 7990,
+    oldPrice: 9990,
+    isAvailable: true,
+    rating: 4.6,
+    reviewsCount: 67,
+    badge: 'Скидка',
+    image: 'images/products/headphones-pro.svg',
+    description: 'Компактные TWS-наушники с интеллектуальным шумоподавлением и беспроводной зарядкой кейса.'
+  },
+  {
+    id: 8,
+    title: 'NovaStation Mini AI',
+    category: 'home',
+    price: 4990,
+    oldPrice: null,
+    isAvailable: true,
+    rating: 4.7,
+    reviewsCount: 38,
+    badge: null,
+    image: 'images/products/speaker-home.svg',
+    description: 'Компактная умная колонка для спальни или кухни с часами на LED-дисплее.'
+  },
+  {
+    id: 9,
+    title: 'SocketLink PowerStrip 4',
+    category: 'power',
+    price: 3490,
+    oldPrice: null,
+    isAvailable: true,
+    rating: 4.9,
+    reviewsCount: 29,
+    badge: 'Новинка',
+    image: 'images/products/smart-plug.svg',
+    description: 'Умный сетевой фильтр на 4 розетки и 2 порта USB-C с независимым управлением по Wi-Fi.'
+  },
+  {
+    id: 10,
+    title: 'SmartPulse Watch Active',
+    category: 'wearable',
+    price: 16990,
+    oldPrice: 19990,
+    isAvailable: false,
+    rating: 4.5,
+    reviewsCount: 44,
+    badge: 'Скидка',
+    image: 'images/products/watch-chrono.svg',
+    description: 'Спортивные умные часы с легким алюминиевым корпусом и влагозащитой для плавания.'
+  }
+];

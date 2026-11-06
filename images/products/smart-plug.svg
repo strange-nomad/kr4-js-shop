@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <filter id="plugShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="400" height="300" fill="#f8fafc"/>
+  <!-- Корпус розетки -->
+  <rect x="150" y="80" width="100" height="140" rx="20" fill="#ffffff" stroke="#e2e8f0" stroke-width="4" filter="url(#plugShadow)"/>
+  <!-- Углубление розетки Schuko -->
+  <circle cx="200" cy="140" r="35" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="188" cy="140" r="5" fill="#334155"/>
+  <circle cx="212" cy="140" r="5" fill="#334155"/>
+  <!-- Заземляющие контакты -->
+  <rect x="198" y="108" width="4" height="8" rx="1" fill="#94a3b8"/>
+  <rect x="198" y="164" width="4" height="8" rx="1" fill="#94a3b8"/>
+  <!-- Кнопка питания со светодиодом -->
+  <circle cx="200" cy="195" r="8" fill="#10b981"/>
+  <text x="200" y="260" fill="#64748b" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Matter &amp; Zigbee 3.0</text>
+</svg>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Интернет-магазин умной электроники и гаджетов SmartPulse с динамической корзиной на JavaScript, поиском и фильтрацией.">
+  <title>SmartPulse — Магазин умной электроники (JavaScript)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Подключение скриптов интерактивности -->
+  <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/modal.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <!-- Ссылка быстрой навигации для скринридеров и клавиатуры (A11y) -->
+  <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+  <!-- Шапка сайта -->
+  <header class="site-header site-header--sticky">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-header__logo" aria-label="На главную страницу SmartPulse">
+        <span class="site-header__logo-icon" aria-hidden="true">SP</span>
+        <span>SmartPulse</span>
+      </a>
+
+      <!-- Кнопка мобильного бургер-меню -->
+      <button type="button" class="burger-btn" aria-label="Открыть мобильное меню" aria-expanded="false" aria-controls="site-nav">
+        <span class="burger-btn__line" aria-hidden="true"></span>
+        <span class="burger-btn__line" aria-hidden="true"></span>
+        <span class="burger-btn__line" aria-hidden="true"></span>
+      </button>
+
+      <!-- Единая сквозная навигация -->
+      <nav id="site-nav" class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a href="index.html" class="site-nav__link site-nav__link--active" aria-current="page">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="catalog.html" class="site-nav__link">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="product.html" class="site-nav__link">О товаре</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="cart.html" class="site-nav__link">
+              Корзина <span class="cart-badge" style="display: none;"></span>
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a href="order.html" class="site-nav__link">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="contacts.html" class="site-nav__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <button type="button" class="button button--outline" data-modal-open>Консультация</button>
+        <a href="cart.html" class="button button--primary">Корзина</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Основное содержимое страницы -->
+  <main id="main-content">
+    <!-- Промо-блок (Hero) -->
+    <section class="hero" aria-label="Промо-блок">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="hero__badge">Технологии будущего 2026</span>
+          <h1 class="hero__title">Умные гаджеты для жизни в новом ритме</h1>
+          <p class="hero__description">
+            Откройте экосистему устройств нового поколения: флагманские смарт-часы, аудиосистемы с активным шумоподавлением и умные датчики для полного контроля комфорта вашего дома.
+          </p>
+          <div class="hero__actions">
+            <a href="catalog.html" class="button button--primary button--large">Смотреть каталог</a>
+            <a href="#advantages" class="button button--secondary button--large">Преимущества</a>
+            <a href="#popular" class="button button--secondary button--large">Хиты продаж</a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <picture>
+            <source media="(max-width: 480px)" srcset="images/products/watch-chrono.svg">
+            <img src="images/products/watch-chrono.svg" alt="Флагманские смарт-часы SmartPulse Chrono Pro" width="380" height="280" loading="eager">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция преимуществ с якорным идентификатором -->
+    <section id="advantages" class="advantages" aria-label="Преимущества магазина">
+      <div class="container">
+        <h2 class="advantages__title">Почему выбирают SmartPulse</h2>
+        <div class="advantages__grid">
+          <article class="advantage-card">
+            <div class="advantage-card__icon-box">
+              <img src="images/icons/truck.svg" alt="" aria-hidden="true" width="24" height="24">
+            </div>
+            <h3 class="advantage-card__title">Экспресс-доставка</h3>
+            <p class="advantage-card__text">Доставляем заказы день в день по городу и от 2 дней по всей России с бережной упаковкой.</p>
+          </article>
+
+          <article class="advantage-card">
+            <div class="advantage-card__icon-box">
+              <img src="images/icons/shield.svg" alt="" aria-hidden="true" width="24" height="24">
+            </div>
+            <h3 class="advantage-card__title">Официальная гарантия</h3>
+            <p class="advantage-card__text">Прямые поставки от производителей. Полная гарантия 24 месяца с собственным сервисным центром.</p>
+          </article>
+
+          <article class="advantage-card">
+            <div class="advantage-card__icon-box">
+              <img src="images/icons/headset.svg" alt="" aria-hidden="true" width="24" height="24">
+            </div>
+            <h3 class="advantage-card__title">Поддержка 24/7</h3>
+            <p class="advantage-card__text">Технические специалисты помогут настроить интеграцию сценариев умного дома в любое время.</p>
+          </article>
+
+          <article class="advantage-card">
+            <div class="advantage-card__icon-box">
+              <img src="images/icons/refresh.svg" alt="" aria-hidden="true" width="24" height="24">
+            </div>
+            <h3 class="advantage-card__title">Программа Trade-in</h3>
+            <p class="advantage-card__text">Обменяйте старый гаджет на новое устройство со скидкой до 40% после моментальной оценки.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция популярных товаров с интерактивным добавлением в корзину -->
+    <section id="popular" class="container" aria-label="Популярные устройства">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <h2>Популярные устройства</h2>
+        <a href="catalog.html" class="button button--outline">Все товары в каталоге →</a>
+      </div>
+
+      <div class="product-grid">
+        <!-- Карточка 1 -->
+        <article class="product-card product-card--featured">
+          <span class="product-card__badge product-card__badge--hit">Хит продаж</span>
+          <div class="product-card__image-box">
+            <img src="images/products/watch-chrono.svg" alt="Смарт-часы SmartPulse Chrono Pro" class="product-card__image" width="300" height="200" loading="lazy">
+          </div>
+          <div class="product-card__content">
+            <div class="product-card__meta">
+              <span>Смарт-часы</span>
+              <span class="product-card__rating">
+                <img src="images/icons/star.svg" alt="" aria-hidden="true" width="14" height="14"> 4.9 (128)
+              </span>
+            </div>
+            <h3 class="product-card__title">
+              <a href="product.html">SmartPulse Chrono Pro</a>
+            </h3>
+            <p class="product-card__description">Флагманские часы с титановым безелем, AMOLED экраном 1.43" и мониторингом SpO2.</p>
+            <div class="product-card__price-row">
+              <span class="product-card__price">24 990 ₽</span>
+              <span class="product-card__old-price">29 990 ₽</span>
+            </div>
+            <div class="product-card__actions">
+              <a href="product.html" class="button button--secondary">Подробнее</a>
+              <button type="button" class="button button--primary" data-buy-id="1">В корзину</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Карточка 2 -->
+        <article class="product-card product-card--discount">
+          <span class="product-card__badge product-card__badge--discount">-25% Скидка</span>
+          <div class="product-card__image-box">
+            <img src="images/products/headphones-pro.svg" alt="Беспроводные наушники SonicFlow ANC" class="product-card__image" width="300" height="200" loading="lazy">
+          </div>
+          <div class="product-card__content">
+            <div class="product-card__meta">
+              <span>Аудио</span>
+              <span class="product-card__rating">
+                <img src="images/icons/star.svg" alt="" aria-hidden="true" width="14" height="14"> 4.8 (94)
+              </span>
+            </div>
+            <h3 class="product-card__title">
+              <a href="product.html">SonicFlow ANC Max</a>
+            </h3>
+            <p class="product-card__description">Беспроводные полноразмерные наушники с гибридным шумоподавлением и Hi-Res Audio кодеками.</p>
+            <div class="product-card__price-row">
+              <span class="product-card__price">14 990 ₽</span>
+              <span class="product-card__old-price">19 990 ₽</span>
+            </div>
+            <div class="product-card__actions">
+              <a href="product.html" class="button button--secondary">Подробнее</a>
+              <button type="button" class="button button--primary" data-buy-id="2">В корзину</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Карточка 3 -->
+        <article class="product-card">
+          <span class="product-card__badge product-card__badge--new">Новинка</span>
+          <div class="product-card__image-box">
+            <img src="images/products/speaker-home.svg" alt="Умная колонка NovaStation AI" class="product-card__image" width="300" height="200" loading="lazy">
+          </div>
+          <div class="product-card__content">
+            <div class="product-card__meta">
+              <span>Умный дом</span>
+              <span class="product-card__rating">
+                <img src="images/icons/star.svg" alt="" aria-hidden="true" width="14" height="14"> 5.0 (42)
+              </span>
+            </div>
+            <h3 class="product-card__title">
+              <a href="product.html">NovaStation AI Hub</a>
+            </h3>
+            <p class="product-card__description">Интеллектуальный спикер с голосовым ассистентом, протоколом Zigbee 3.0 и объемным звуком 360°.</p>
+            <div class="product-card__price-row">
+              <span class="product-card__price">11 490 ₽</span>
+            </div>
+            <div class="product-card__actions">
+              <a href="product.html" class="button button--secondary">Подробнее</a>
+              <button type="button" class="button button--primary" data-buy-id="3">В корзину</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Секция отзывов клиентов -->
+    <section class="container reviews" aria-label="Отзывы покупателей">
+      <h2 class="reviews__title">Отзывы наших покупателей</h2>
+      <div class="reviews__grid">
+        <article class="review-card">
+          <div class="review-card__header">
+            <div class="review-card__avatar" aria-hidden="true">ДМ</div>
+            <div>
+              <div class="review-card__author">Дмитрий Михайлов</div>
+              <div class="review-card__date">14 сентября 2026</div>
+            </div>
+          </div>
+          <p class="review-card__text">
+            «Купил часы Chrono Pro на замену старым фитнес-трекерам. Качество сборки на высоте, титановый корпус ощущается надежно, заряд держат больше недели!»
+          </p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__header">
+            <div class="review-card__avatar" aria-hidden="true">ЕК</div>
+            <div>
+              <div class="review-card__author">Елена Кузнецова</div>
+              <div class="review-card__date">8 сентября 2026</div>
+            </div>
+          </div>
+          <p class="review-card__text">
+            «Наушники SonicFlow стали спасением в офисе. Шумоподавление отсекает все фоновые звуки, звук кристально чистый. Оформила заказ за пару минут.»
+          </p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__header">
+            <div class="review-card__avatar" aria-hidden="true">АС</div>
+            <div>
+              <div class="review-card__author">Алексей Смирнов</div>
+              <div class="review-card__date">1 сентября 2026</div>
+            </div>
+          </div>
+          <p class="review-card__text">
+            «Отличный магазин! Доставили день в день, курьер помог проверить комплектацию. Приятно удивила гарантия 2 года прямо от сервисного центра.»
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Секция FAQ -->
+    <section class="container faq" aria-label="Часто задаваемые вопросы">
+      <h2 class="faq__title">Часто задаваемые вопросы</h2>
+      <div class="faq__list">
+        <details class="faq-item" open>
+          <summary class="faq-item__question">Как быстро доставляются заказы?</summary>
+          <div class="faq-item__answer">
+            По Москве и Санкт-Петербургу курьерская доставка осуществляется день в день при заказе до 14:00. В остальные регионы РФ доставка занимает от 2 до 4 рабочих дней транспортными компаниями СДЭК и Boxberry.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__question">Какая гарантия действует на устройства?</summary>
+          <div class="faq-item__answer">
+            Все товары сертифицированы и имеют официальную гарантию производителя 24 месяца со дня покупки. В случае неисправности мы оперативно осуществляем ремонт или замену.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__question">Как работает программа Trade-in?</summary>
+          <div class="faq-item__answer">
+            Вы приносите ваш старый гаджет в наш шоурум или передаете курьеру, специалист проводит диагностику за 10 минут, и стоимость старого устройства вычитается из чека на новую покупку.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__question">Возможен ли возврат товара, если он не подошел?</summary>
+          <div class="faq-item__answer">
+            Да, вы можете вернуть товар надлежащего качества в течение 14 дней с момента получения при сохранении товарного вида, заводских пломб и чека.
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- Плавающая кнопка возврата наверх -->
+  <a href="#main-content" class="scroll-top-btn" title="Вернуться к началу страницы" aria-label="Вернуться наверх">↑</a>
+
+  <!-- Модальное окно быстрой заявки/консультации -->
+  <dialog id="modal-feedback" class="modal" aria-labelledby="modal-title">
+    <div class="modal__card">
+      <button type="button" class="modal__close-btn" data-modal-close aria-label="Закрыть окно">&times;</button>
+      <h3 id="modal-title">Быстрая консультация</h3>
+      <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 16px;">
+        Оставьте свои контакты, и наш специалист перезвонит в течение 10 минут для подбора гаджета.
+      </p>
+      <form class="order-form" method="dialog">
+        <div class="order-form__field">
+          <label for="modal-name" class="order-form__label">Ваше имя <span class="order-form__label-required">*</span></label>
+          <input type="text" id="modal-name" name="name" class="order-form__input" required placeholder="Арсений">
+        </div>
+        <div class="order-form__field">
+          <label for="modal-phone" class="order-form__label">Номер телефона <span class="order-form__label-required">*</span></label>
+          <input type="tel" id="modal-phone" name="phone" class="order-form__input" required placeholder="+7 (999) 000-00-00">
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__checkbox-label">
+            <input type="checkbox" name="agree" required checked>
+            Согласен на обработку персональных данных
+          </label>
+        </div>
+        <div class="order-form__actions">
+          <button type="button" class="button button--secondary" data-modal-close>Отмена</button>
+          <button type="submit" class="button button--primary">Жду звонка</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Подвал сайта с якорным идентификатором #contacts -->
+  <footer id="contacts" class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-header__logo" style="color: #ffffff; margin-bottom: 12px;">
+            <span class="site-header__logo-icon" aria-hidden="true">SP</span>
+            <span>SmartPulse</span>
+          </div>
+          <p style="font-size: 0.9rem;">
+            Флагманский магазин инновационной электроники, носимых устройств и систем умного дома.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="site-footer__title">Навигация</h4>
+          <ul class="site-footer__list">
+            <li><a href="index.html" class="site-footer__link">Главная</a></li>
+            <li><a href="catalog.html" class="site-footer__link">Каталог гаджетов</a></li>
+            <li><a href="product.html" class="site-footer__link">Карточка товара</a></li>
+            <li><a href="cart.html" class="site-footer__link">Корзина покупок</a></li>
+            <li><a href="order.html" class="site-footer__link">Оформить заявку</a></li>
+            <li><a href="contacts.html" class="site-footer__link">Контакты и шоурум</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="site-footer__title">Быстрые якоря</h4>
+          <ul class="site-footer__list">
+            <li><a href="index.html#advantages" class="site-footer__link">Преимущества</a></li>
+            <li><a href="index.html#popular" class="site-footer__link">Хиты продаж</a></li>
+            <li><a href="index.html#contacts" class="site-footer__link">Контактные данные</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="site-footer__title">Контакты</h4>
+          <ul class="site-footer__list">
+            <li>г. Москва, ул. Проспект Вернадского, 78</li>
+            <li>Телефон: +7 (495) 123-45-67</li>
+            <li>Email: info@smartpulse-shop.ru</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© 2026 SmartPulse. Контрольная работа №4 по JavaScript. Студент: Кабанов Арсений Алексеевич, гр. ЭФБО-17-25.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
